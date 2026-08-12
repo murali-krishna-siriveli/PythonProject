@@ -1,1 +1,41 @@
-
+# Insurance Automation Framework
+ 
+## Overview
+ 
+Python Selenium automation framework for testing an end-to-end health insurance purchase journey.
+ 
+## Tech Stack
+ 
+- Python
+- Selenium WebDriver
+- Pytest
+- Page Object Model (POM)
+- Git & GitHub
+- Allure Reports
+ 
+## Framework Structure
+ 
+- `pages/` – Page Object classes
+- `tests/` – Test cases and pytest fixtures
+- `config/` – Configuration files
+- `data/` – Test data
+- `utils/` – Utilities and logging
+- `reports/` – Test reports
+- `screenshots/` – Failure screenshots
+ 
+## Scenarios Automated
+ 
+- Login
+- Declaration
+- User details
+- Medical questionnaire
+- Quote
+- Share payment
+- Payment gateway
+- Payment success
+ 
+## Execution
+ 
+```bash
+pytest -v
+ 
