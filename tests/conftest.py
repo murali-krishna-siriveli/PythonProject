@@ -24,9 +24,9 @@ def pytest_runtest_makereport(item, call):
         outcome = yield
         report = outcome.get_result()
 
-        if report.when == "call" and report.failed:
-            driver = item.funcargs.get("setup"
-                                       "")
+        if report.when == "call":
+            driver = item.funcargs.get("setup")
+
 
             if driver:
                 screenshots_dir = os.path.join(
@@ -46,3 +46,5 @@ def pytest_runtest_makereport(item, call):
                 driver.save_screenshot(screenshot_path)
 
                 print(f"\nScreenshot saved: {screenshot_path}")
+            import allure
+            allure.attach.file(screenshot_path, name=item.name, attachment_type=allure.attachment_type.PNG)
