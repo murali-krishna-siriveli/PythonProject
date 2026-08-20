@@ -26,7 +26,5 @@ jobs:
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}
-          run: |
-            pytest
-        
-        uses:
+        run: |             # ✅ Correct - same level as env
+          pytest
