@@ -4,13 +4,23 @@ import pytest
 import os
 from datetime import datetime
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import configparser
+
 config = configparser.ConfigParser()
 config.read("config/config.ini")
 
 @pytest.fixture(scope="class")
 def setup():
-    driver = webdriver.Chrome()
+    # Chrome options for headless environments (CI/CD)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+    
+    driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()
     driver.get(config["settings"]["base_url"])
 
