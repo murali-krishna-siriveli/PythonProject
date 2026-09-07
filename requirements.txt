@@ -1,6 +1,7 @@
 selenium
 pytest
 pytest-html
+pytest-timeout
 pyperclip
 webdriver-manager
 allure-pytest

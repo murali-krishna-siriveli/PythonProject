@@ -26,5 +26,12 @@ jobs:
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: |             # ✅ Correct - same level as env
-          pytest
+        run: |
+          pytest --timeout=120 -v --tb=short
+
+      - name: Upload Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots/
