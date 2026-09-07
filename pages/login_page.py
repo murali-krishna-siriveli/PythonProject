@@ -75,7 +75,7 @@ class LoginPage:
         gmail_password = self.wait.until(
             EC.visibility_of_element_located((By.NAME, "Passwd"))
         )
-        gmail_password.send_keys("Murali@143")
+        gmail_password.send_keys("Murali@12345")
 
         self.wait.until(
             EC.element_to_be_clickable((By.ID, "passwordNext"))
